@@ -3,6 +3,7 @@
 <head>
 	<title>Hesap Makinesi</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;400;900&display=swap" rel="stylesheet">
 </head>
@@ -20,11 +21,12 @@
 			<input type="number" id="artis" required><br>
 			<input type="number" id="gunsayi" required><br>
 		</div>
-		<button type="button" onclick="sonucgoster()">Hesapla</button>
-		<button type="reset">Sıfırla</button>
+		<div id="verilerbuttons">
+			<button type="button" onclick="sonucgoster()">Hesapla</button>
+			<button type="reset">Sıfırla</button>
+		</div>
 	</form>
 	<div id="sonuclar">
-
 	</div>
 	<script>
 		var sonuclar = document.getElementById("sonuclar");
@@ -86,6 +88,14 @@
 		}
 		#veriler div{
 			float:left;
+		}
+		#verilerbuttons{
+			width:100%;
+		}
+		@media screen and (orientation:portrait){
+			#sonuclar,#veriler{
+				width:100%;
+			}
 		}
 	</style>
 </body>
