@@ -7,18 +7,21 @@
 <body>
 	<form>
 		<label for="ilkdeger">Başlangıç miktarını girin:</label>
-		<input type="number" name="ilkdeger" required><br>
+		<input type="number" id="ilkdeger" required><br>
 		<label for="artis">Artış miktarını yüzde olarak girin:</label>
-		<input type="number" name="artis" required><br>
+		<input type="number" id="artis" required><br>
 		<label for="gunsayi">Gün sayısını girin:</label>
-		<input type="number" name="gunsayi" required><br>
+		<input type="number" id="gunsayi" required><br>
 		<button type="button" onclick="sonucgoster()">Hesapla</button>
 		<button type="reset">Sıfırla</button>
 	</form>
 	<script>
+		var ilkdeger = document.getElementById("ilkdeger").value;
+		var artis = document.getElementById("artis").value;
+		var gunsayi = document.getElementId("gunsayi").value;
 		function sonucgoster(){
-			let x = 10;
-			console.log(x);
+			let yuzde = artis+100;
+			console.log(yuzde);
 		}
 	</script>
 </body>
