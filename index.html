@@ -1,17 +1,25 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<title>Kripto Kâr Hesaplayıcısı</title>
+	<title>Hesap Makinesi</title>
 	<meta charset="utf-8">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;400;900&display=swap" rel="stylesheet">
 </head>
 <body>
-	<form>
-		<label for="ilkdeger">Başlangıç miktarını girin:</label>
-		<input type="number" id="ilkdeger" required><br>
-		<label for="artis">Artış miktarını yüzde olarak girin:</label>
-		<input type="number" id="artis" value="12" required><br>
-		<label for="gunsayi">Gün sayısını girin:</label>
-		<input type="number" id="gunsayi" required><br>
+	<h1 id="baslik">Kripto Hesap Makinesi</h1><br>
+	<button onclick="gecemodu()">Gece Modu</button>
+	<form id="veriler">
+		<div>
+			<label for="ilkdeger">Başlangıç miktarını girin:</label><br>
+			<label for="artis">Artış miktarını yüzde olarak girin:</label><br>
+			<label for="gunsayi">Gün sayısını girin:</label><br>
+		</div>
+		<div>
+			<input type="number" id="ilkdeger" required><br>
+			<input type="number" id="artis" value="12" required><br>
+			<input type="number" id="gunsayi" required><br>
+		</div>
 		<button type="button" onclick="sonucgoster()">Hesapla</button>
 		<button type="reset">Sıfırla</button>
 	</form>
@@ -20,6 +28,7 @@
 	</div>
 	<script>
 		var sonuclar = document.getElementById("sonuclar");
+		var currentMode = "light";
 		function sonucgoster(){
 			var ilkdeger = Number(document.getElementById("ilkdeger").value);
 			var artis = Number(document.getElementById("artis").value);
@@ -29,10 +38,55 @@
 			var hesap = ilkdeger;
 			for(var i=1;i<gunsayi+1;i++){
 				hesap = hesap * yuzde; 
-				sonuc += `<p>${i}. günde ${hesap}</p>`;
+				sonuc += `<p>-${i}. günde ${Math.round(hesap*100)/100}</p><br>`;
 			}
 			sonuclar.innerHTML = sonuc;
 		}
+		function gecemodu(){
+			if(currentMode == "light"){
+				currentMode="dark";
+			}else{
+				currentMode="light";
+			}
+			document.documentElement.style.setProperty("--bg-color",`var(--bg-color-${currentMode}`);
+			document.documentElement.style.setProperty("--text-color",`var(--text-color-${currentMode}`);
+			document.documentElement.style.setProperty("--title-color",`var(--title-color-${currentMode}`);
+		}
 	</script>
+	<style>
+		:root{
+			--bg-color-light:#F8FFF4;
+			--bg-color-dark:#55505C;
+			--text-color-light:#55505C;
+			--text-color-dark:#F8FFF4;
+			--title-color-light:#5D737E;
+			--title-color-dark:#FAF33E;
+			--color-extra:#7FC6A4;
+			--bg-color:var(--bg-color-light);
+			--text-color:var(--text-color-light);
+			--title-color:var(--title-color-light);
+		}
+		body{
+			font-family: 'Inconsolata', monospace;
+			background-color:var(--bg-color);
+			color:var(--text-color);
+		}
+		#baslik{
+			font-size:bold;
+			width:100%;
+			text-align:center;
+			color:var(--title-color);
+		}
+		#sonuclar p{
+			margin:0;
+		}
+		#sonuclar,#veriler{
+			width:50%;
+			float:left;
+		}
+		#veriler div{
+			float:left;
+		}
+	</style>
 </body>
 </html>
