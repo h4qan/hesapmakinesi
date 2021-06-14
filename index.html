@@ -11,20 +11,14 @@
 	<h1 id="baslik">Kripto Hesap Makinesi</h1><br>
 	<button onclick="gecemodu()">Gece Modu</button>
 	<form id="veriler">
-		<div>
-			<label for="ilkdeger">Başlangıç miktarını girin:</label><br>
-			<label for="artis">Artış miktarını yüzde olarak girin:</label><br>
-			<label for="gunsayi">Gün sayısını girin:</label><br>
-		</div>
-		<div>
-			<input type="number" id="ilkdeger" required><br>
-			<input type="number" id="artis" required><br>
-			<input type="number" id="gunsayi" required><br>
-		</div>
-		<div id="verilerbuttons">
-			<button type="button" onclick="sonucgoster()">Hesapla</button>
-			<button type="reset">Sıfırla</button>
-		</div>
+		<label for="ilkdeger">Başlangıç miktarını girin:</label><br>
+		<input type="number" id="ilkdeger" required><br>
+		<label for="artis">Artış miktarını yüzde olarak girin:</label><br>
+		<input type="number" id="artis" required><br>
+		<label for="gunsayi">Gün sayısını girin:</label><br>
+		<input type="number" id="gunsayi" required><br>
+		<button type="button" onclick="sonucgoster()">Hesapla</button>
+		<button type="reset">Sıfırla</button>
 	</form>
 	<div id="sonuclar">
 	</div>
@@ -82,15 +76,12 @@
 		#sonuclar p{
 			margin:0;
 		}
+		#veriler{
+			position:relative;
+		}
 		#sonuclar,#veriler{
 			width:50%;
 			float:left;
-		}
-		#veriler div{
-			float:left;
-		}
-		#verilerbuttons{
-			width:100%;
 		}
 		@media screen and (orientation:portrait){
 			#sonuclar,#veriler{
