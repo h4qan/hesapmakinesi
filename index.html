@@ -8,7 +8,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;400;900&display=swap" rel="stylesheet">
 </head>
 <body>
-	<h1 id="baslik">Kripto Hesap Makinesi</h1><br>
+	<div id="baslik">
+		<h1>Kripto Hesap Makinesi</h1><br>
+	</div>
 	<button onclick="gecemodu()">Gece Modu</button>
 	<form id="veriler">
 		<label for="ilkdeger">Başlangıç miktarını girin:</label><br>
@@ -68,20 +70,24 @@
 			color:var(--text-color);
 		}
 		#baslik{
-			font-size:bold;
 			width:100%;
 			text-align:center;
+		}
+		#baslik h1{
+			font-size:bold;
 			color:var(--title-color);
+			margin:auto;
 		}
 		#sonuclar p{
 			margin:0;
 		}
-		#veriler{
-			position:relative;
+		#veriler *{
+			margin:auto;
 		}
 		#sonuclar,#veriler{
 			width:50%;
 			float:left;
+			padding:auto;
 		}
 		@media screen and (orientation:portrait){
 			#sonuclar,#veriler{
